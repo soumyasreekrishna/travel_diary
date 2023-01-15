@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <style>
+body, html {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-img {
+  /* The image used */
+  background-image: url("https://www.makemytrip.com/travel-guide/media/dg_image/goa/Nature-Walk.jpg");
+
+  /* Control the height of the image */
+  min-height: 380px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* Add styles to the form container */
+.container {
+  position: absolute;
+  left: 10%;
+  top:20%;
+  margin: 20px;
+  max-width: 300px;
+  padding: 16px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+  input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit button */
+.btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+
+    </style>
+</head>
+<body class="bg-img">
+<div>
+<form action="login" method="post" class="container">
+    {% csrf_token %}
+     <h1>Login</h1>
+    {% for msg in messages %}
+ <h4>{{msg}}</h4>
+{% endfor %}
+    <label for="username"><b>User Name</b></label>
+    <input type="text" name="username" placeholder="Enter your username" required>
+    <br>
+    <label for="password"><b>Password</b></label>
+    <input type="password" name="password" placeholder="Enter your password" required>
+    <br>
+    <button type="submit" class="btn">Login</button>
+</form>
+    </div>
+
+</body>
+</html>
